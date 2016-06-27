@@ -26,6 +26,17 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_POST_INSTALL_CMD := \
     $(hide) mkdir -p $(TARGET_OUT_VENDOR)/firmware && \
     rm -f $(TARGET_OUT_VENDOR)/firmware/libpn544_fw.so && \
-    ln -sf /system/vendor/lib/firmware/libpn544_fw_c3.so $(TARGET_OUT_VENDOR)/firmware/libpn544_fw.so
+    ln -sf /system/vendor/lib/firmware/libpn544_fw.so $(TARGET_OUT_VENDOR)/firmware/libpn544_fw.so
+
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := libpn544_fw.c
+LOCAL_MODULE := libpn544_fw
+LOCAL_MODULE_OWNER := nxp
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/lib/firmware
+LOCAL_MODULE_TAGS := optional
+LOCAL_PACK_MODULE_RELOCATIONS := false
 
 include $(BUILD_SHARED_LIBRARY)

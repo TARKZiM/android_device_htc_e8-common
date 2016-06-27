@@ -21,6 +21,7 @@ PRODUCT_PACKAGES += \
     libnfc \
     libnfc_ndef \
     libnfc_jni \
+    libpn544_fw \
     Nfc
 
 # NFC Permissions
