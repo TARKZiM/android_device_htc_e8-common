@@ -22,4 +22,10 @@ LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 
+# Symlink /vendor/firmware/libpn544_fw.so to /vendor/lib/firmware/libpn544_fw.so
+LOCAL_POST_INSTALL_CMD := \
+    $(hide) mkdir -p $(TARGET_OUT_VENDOR)/firmware && \
+    rm -f $(TARGET_OUT_VENDOR)/firmware/libpn544_fw.so && \
+    ln -sf /system/vendor/lib/firmware/libpn544_fw_c3.so $(TARGET_OUT_VENDOR)/firmware/libpn544_fw.so
+
 include $(BUILD_SHARED_LIBRARY)
