@@ -31,7 +31,7 @@
 -include device/htc/msm8974-common/BoardConfigCommon.mk
 
 # Assertions
-TARGET_BOARD_INFO_FILE ?= device/htc/m8-common/board-info.txt
+TARGET_BOARD_INFO_FILE ?= device/htc/e8-common/board-info.txt
 
 # Camera
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
@@ -40,11 +40,8 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/mm-qcamera-daemon=23
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# NFC
-BOARD_NFC_HAL_SUFFIX := msm8974
-
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/m8-common/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/htc/e8-common/releasetools
 
 # Inherit from the proprietary version
--include vendor/htc/m8-common/BoardConfigVendor.mk
+-include vendor/htc/e8-common/BoardConfigVendor.mk

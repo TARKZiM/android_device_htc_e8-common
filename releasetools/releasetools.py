@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-""" Custom OTA commands for m8 devices """
+""" Custom OTA commands for e8 devices """
 
 import common
 import re

@@ -1,5 +1,5 @@
 #
-# Common system properties for m8 and m8d
+# Common system properties for e8 and e8d
 #
 
 # Camera
