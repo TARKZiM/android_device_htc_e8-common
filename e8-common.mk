@@ -31,7 +31,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:system/vendor/etc/permissions/android.hardware.consumerir.xml \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/vendor/etc/permissions/android.hardware.telephony.cdma.xml \
     $(LOCAL_PATH)/configs/com.htc.software.market.xml:system/vendor/etc/permissions/com.htc.software.market.xml
 
@@ -46,11 +45,3 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     init.target.rc
-
-# IRDA
-PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl \
-    android.hardware.ir@1.0-service
-
-PRODUCT_BOOT_JARS += \
-    htcirlibs

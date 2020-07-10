@@ -3,10 +3,3 @@ import /vendor/etc/init/hw/init.variant.rc
 on early-init
     # HAL looks for pn54x but kernel driver uses pn544
     symlink /dev/pn544 /dev/pn54x
-
-## Service start here
-service cir_fw_update /system/vendor/bin/cir_fw_update -u cir.img
-    class main
-    user system
-    group system
-    oneshot
