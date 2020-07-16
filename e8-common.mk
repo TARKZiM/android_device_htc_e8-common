@@ -24,6 +24,14 @@ $(call inherit-product, device/htc/msm8974-common/msm8974-common.mk)
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
+# NFC
+$(call inherit-product, device/htc/e8-common/nfc/product_pn544.mk)
+$(call inherit-product, device/htc/e8-common/nfc/product_pn547.mk)
+
+# Device check
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/device_check.sh:install/bin/device_check.sh
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -45,3 +53,4 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     init.target.rc
+
