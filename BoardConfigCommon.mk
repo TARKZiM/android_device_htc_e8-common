@@ -30,9 +30,6 @@
 # Inherit from common msm8974-common
 -include device/htc/msm8974-common/BoardConfigCommon.mk
 
-# Assertions
-TARGET_BOARD_INFO_FILE ?= device/htc/e8-common/board-info.txt
-
 # Camera
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
