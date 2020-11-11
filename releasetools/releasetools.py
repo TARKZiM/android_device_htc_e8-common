@@ -27,10 +27,8 @@ def FullOTA_PostValidate(info):
   info.script.AppendExtra('run_program("/sbin/e2fsck", "-fy", "/dev/block/platform/msm_sdcc.1/by-name/system");');
 
 def FullOTA_InstallEnd(info):
-  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");');
   info.script.AppendExtra('run_program("/tmp/install/bin/device_check.sh");');
-  info.script.AppendExtra('ui_print("NFC Packages automatically setup for this device.");');
-  info.script.AppendExtra('unmount("/system");');
+  info.script.Print("NFC Packages automatically setup for this device.");
 
 def FullOTA_Assertions(info):
   AddBootloaderAssertion(info, info.input_zip)

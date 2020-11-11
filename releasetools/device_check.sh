@@ -16,19 +16,24 @@
 # limitations under the License.
 #
 
+echo "Mounting system"
+mount -t ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system_root -o rw,discard
+
 if [ "$(getprop ro.build.product)" == "htc_mecul_emea" ] || [ "$(getprop ro.build.product)" == "htc_mecdug" ] || [ "$(getprop ro.build.product)" == "htc_mecdugl" ] || [ "$(getprop ro.build.product)" == "htc_mecdwg" ]; then 
     # Remove PN547 NFC related stuff
-    rm -rf /system/app/NfcNci
-    rm -rf /system/vendor/lib/hw/nfc_nci.msm8974.so
-    rm -rf /system/vendor/etc/permissions/android.hardware.nfc.hce.xml
-    rm -rf /system/vendor/etc/permissions/com.android.nfc_extras.xml
-    rm -rf /system/framework/com.android.nfc_extras.jar
+    rm -rf /system_root/system/app/NfcNci
+    rm -rf /system_root/system/vendor/lib/hw/nfc_nci.msm8974.so
+    rm -rf /system_root/system/vendor/etc/permissions/android.hardware.nfc.hce.xml
+    rm -rf /system_root/system/vendor/etc/permissions/com.android.nfc_extras.xml
+    rm -rf /system_root/system/framework/com.android.nfc_extras.jar
 elif [ "$(getprop ro.build.product)" == "htc_mecdwgl" ] || [ "$(getprop ro.build.product)" == "htc_mecwhl" ] || [ "$(getprop ro.build.product)" == "htc_mectl" ] || [ "$(getprop ro.build.product)" == "htc_mecul" ]; then
     # Remove PN544 NFC related stuff
-    rm -rf /system/app/Nfc
-    rm -rf /system/vendor/lib/hw/nfc.msm8974.so
+    rm -rf /system_root/system/app/Nfc
+    rm -rf /system_root/system/vendor/lib/hw/nfc.msm8974.so
 else
     # Remove PN544 NFC related stuff
-    rm -rf /system/app/Nfc
-    rm -rf /system/vendor/lib/hw/nfc.msm8974.so
+    rm -rf /system_root/system/app/Nfc
+    rm -rf /system_root/system/vendor/lib/hw/nfc.msm8974.so
 fi
+
+umount /system_root
